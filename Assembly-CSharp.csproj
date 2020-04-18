@@ -63,6 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\NumberWizardRandom.cs" />
     <Compile Include="Assets\Scripts\NumberWizards.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/kiwi/Documents/gm-del/Number Wizard/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
