@@ -8,19 +8,7 @@ public class NumberWizards : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("Welcome to number wizard");
-        print("Pick a number in your head but don't tell me!");
-
-        max = 1000;
-        min = 1;
-
-        print("The largest number you can pick is" + max);
-        print("The smallest number you can pick is" + min);
-
-        print("Is the number higher or lower than 500?");
-        print("Up=higher, down=lower, return=equal");
-
-
+        Startgame();
     }
 
     // Update is called once per frame
@@ -28,17 +16,44 @@ public class NumberWizards : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
-            max = (max+min) / 2;
-            print("Is the number higher or lower than" + (min + max) / 2);
-            if (min == max) { print("I won" + min); }
+            max = guess;
+            GuessNumber();
 
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            min = (max+min) / 2;
-            print("Is the number higher or lower than" +(min+max)/2);
-            if (min == max) { print("I won" + min); }
-        }
+        }else if (Input.GetKeyDown(KeyCode.UpArrow)){
+            min = guess;
+            GuessNumber();
+
+        }else if (Input.GetKeyDown(KeyCode.Return)){
+            print("I won" + guess);
+            print("==================================");
+            Start();
+        }   
         
+    }
+
+    void Startgame()
+    {
+        print("Welcome to number wizard");
+        print("Pick a number in your head but don't tell me!");
+
+        max = 1000;
+        min = 1;
+        guess = 500;
+
+        print("The largest number you can pick is" + max);
+        print("The smallest number you can pick is" + min);
+
+        print("Is the number higher or lower than " + guess);
+        print("Up=higher, down=lower, return=equal");
+
+        max += 1;
+    }
+
+    void GuessNumber()
+    {
+        guess = (max + min) / 2;
+        print("Is the number higher or lower than" + (min + max) / 2);
+        print("Up=higher, down=lower, return=equal");
+       
     }
 }
